@@ -11,8 +11,6 @@ module Decidim
       }
     end
 
-    process :validate_dimensions
-
     def default_url(*)
       ActionController::Base.helpers.asset_path("decidim/default-avatar.svg")
     end
