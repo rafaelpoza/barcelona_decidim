@@ -25,7 +25,7 @@ module Decidim
       config.uploader = Decidim::AvatarUploader
     end
 
-    validates :name, :nickname, format: { with: REGEXP_NAME }
+    validates :name, format: { with: REGEXP_NAME }
 
     # Public: Returns a collection with all the entities this user is following.
     #
