@@ -4,24 +4,17 @@ module Decidim
   module Budgets
     # This cell renders information when current user can't create more budgets orders.
     class LimitAnnouncementCell < BaseCell
+      include ProjectsHelper
+
       alias budget model
       delegate :voted?, :vote_allowed?, :discardable, :limit_reached?, to: :current_workflow
       delegate :voting_open?, to: :controller
 
       def show
-        cell("decidim/announcement", announcement_message, callout_class: "warning") if announce?
+        cell("decidim/announcement", announcement_message, callout_class: "warning") if voting_limited?(budget)
       end
 
       private
-
-      def announce?
-        return unless voting_open?
-        return unless current_user
-        return if vote_allowed?(budget)
-        return if voted?(budget)
-
-        discardable.any? || !vote_allowed?(budget, consider_progress: false)
-      end
 
       def announcement_message
         if discardable.any?

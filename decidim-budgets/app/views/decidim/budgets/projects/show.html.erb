@@ -15,7 +15,7 @@ edit_link(
 <%= cell("decidim/budgets/limit_announcement", budget) %>
 
 <div class="row column view-header">
-  <% unless voting_finished? %>
+  <% unless voting_finished? || voting_limited?(budget) %>
     <%= render partial: "budget_summary", locals: { include_heading: false } %>
   <% end %>
 

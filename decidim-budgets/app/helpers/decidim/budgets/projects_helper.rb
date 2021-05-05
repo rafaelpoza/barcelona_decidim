@@ -4,6 +4,18 @@ module Decidim
   module Budgets
     # A helper to render order and budgets actions
     module ProjectsHelper
+      # Determine whether a budget has limits on voting
+      #
+      # budget - A budget object
+      def voting_limited?(budget)
+        return unless voting_open?
+        return unless current_user
+        return if current_workflow.vote_allowed?(budget)
+        return if current_workflow.voted?(budget)
+
+        current_workflow.discardable.any? || !current_workflow.vote_allowed?(budget, consider_progress: false)
+      end
+
       # Render a budget as a currency
       #
       # budget - A integer to represent a budget
