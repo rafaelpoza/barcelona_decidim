@@ -7,8 +7,8 @@
             <%= icon "check", class: "icon--small", role: "img" %>
           </span>
         <% elsif progress? && !voting_finished? %>
-          <span class="button tiny hollow secondary card--list__check card--list__check--disabled card--list__check--inline">
-            <%= icon "bookmark", class: "icon--small", role: "img" %>
+          <span class="button tiny hollow warning card--list__check card--list__check--disabled card--list__check--inline">
+            <%= icon "pin", class: "icon--small", role: "img" %>
           </span>
         <% end %>
         <%= translated_attribute(title) %>
@@ -23,12 +23,12 @@
       </strong>
     </h5>
 
-    <%= translated_attribute(description) %>
+    <%= decidim_sanitize html_truncate(translated_attribute(description), length: 140) %>
   </div>
 
   <div class="budget-list__data">
-    <%= link_to budget_path(budget), class: "button button--sc expanded hollow mb-none" do %>
-      <span><%= "show" %></span>
+    <%= link_to budget_path(budget), class: "button button--sc expanded #{button_class} mb-none" do %>
+      <span><%= button_text %></span>
       <%= icon "chevron-right", class: "icon--small", role: "img" %>
     <% end %>
   </div>

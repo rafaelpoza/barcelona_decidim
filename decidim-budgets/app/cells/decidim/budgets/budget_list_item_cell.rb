@@ -4,6 +4,8 @@ module Decidim
   module Budgets
     # This cell renders the budget item list in the budgets list
     class BudgetListItemCell < BaseCell
+      include Decidim::SanitizeHelper
+      include Decidim::ApplicationHelper
       include ActiveSupport::NumberHelper
       include Decidim::Budgets::ProjectsHelper
 
@@ -43,6 +45,18 @@ module Decidim
 
       def status
         @status ||= current_workflow.status(budget)
+      end
+
+      def button_class
+        "hollow" if voted? || !highlighted?
+      end
+
+      def button_text
+        t(current_workflow.vote_allowed?(budget) ? "vote" : "show", scope: i18n_scope)
+      end
+
+      def i18n_scope
+        "decidim.budgets.budgets_list"
       end
     end
   end
