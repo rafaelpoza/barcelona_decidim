@@ -52,7 +52,13 @@ module Decidim
       end
 
       def button_text
-        t(current_workflow.vote_allowed?(budget) ? "vote" : "show", scope: i18n_scope)
+        key = if current_workflow.vote_allowed?(budget)
+                progress? ? :progress : :vote
+              else
+                :show
+              end
+
+        t(key, scope: i18n_scope)
       end
 
       def i18n_scope
