@@ -4,9 +4,13 @@ module Decidim
   module Budgets
     # This cell renders the budget item list in the budgets list
     class BudgetListItemCell < BaseCell
-      delegate :voting_finished?, to: :controller
+      include ActiveSupport::NumberHelper
+      include Decidim::Budgets::ProjectsHelper
 
-      property :title
+      delegate :voting_finished?, to: :controller
+      delegate :highlighted, to: :current_workflow
+
+      property :title, :description, :total_budget
       alias budget model
 
       private
@@ -17,6 +21,7 @@ module Decidim
             list << "card--list__data-added" if voted?
             list << "card--list__data-progress" if progress?
           end
+          list << "budget--highlighted" if highlighted?
         end.join(" ")
       end
 
@@ -30,6 +35,10 @@ module Decidim
 
       def progress?
         current_user && status == :progress
+      end
+
+      def highlighted?
+        highlighted.include?(budget)
       end
 
       def status

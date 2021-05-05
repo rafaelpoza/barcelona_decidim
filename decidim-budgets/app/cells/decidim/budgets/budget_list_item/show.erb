@@ -1,22 +1,35 @@
-<div class="<%= card_class %>">
-  <div class="card--list__text">
+<div class="<%= card_class %> budget-list__item">
+  <div class="budget-list__text flex-horizontal">
     <%= link_to budget_path(budget), class: link_class do %>
-      <% if voted? && !voting_finished? %>
-        <strong>
-          <%= translated_attribute(title) %>
-        </strong>
-        <span class="button tiny success card--list__check card--list__check--disabled">
-          <%= icon "check", class: "icon--small", role: "img" %>
-        </span>
-      <% else %>
-        <%= translated_attribute(title) %>
-
-        <% if progress? && !voting_finished? %>
-          <span class="button tiny hollow secondary card--list__check card--list__check--disabled">
+      <h4 class="card--list__heading">
+        <% if voted? && !voting_finished? %>
+          <span class="button tiny success card--list__check card--list__check--disabled card--list__check--inline">
+            <%= icon "check", class: "icon--small", role: "img" %>
+          </span>
+        <% elsif progress? && !voting_finished? %>
+          <span class="button tiny hollow secondary card--list__check card--list__check--disabled card--list__check--inline">
             <%= icon "bookmark", class: "icon--small", role: "img" %>
           </span>
         <% end %>
-      <% end %>
+        <%= translated_attribute(title) %>
+
+        <%= icon "chevron-right", class: "icon--small", role: "img" %>
+      </h4>
+    <% end %>
+
+    <h5>
+      <strong>
+        <%= budget_to_currency(total_budget) %>
+      </strong>
+    </h5>
+
+    <%= translated_attribute(description) %>
+  </div>
+
+  <div class="budget-list__data">
+    <%= link_to budget_path(budget), class: "button button--sc expanded hollow mb-none" do %>
+      <span><%= "show" %></span>
+      <%= icon "chevron-right", class: "icon--small", role: "img" %>
     <% end %>
   </div>
 </div>
