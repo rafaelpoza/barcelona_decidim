@@ -4,7 +4,8 @@
   width: 100%;
   top: 0;
   left: 0;
-  background: $light-gray;
+  background: $medium-gray;
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
 
   &__title {
     text-align: center;
@@ -33,7 +34,26 @@
     line-height: 0.5em;
   }
 
+  &__wrapper {
+    background: white;
+  }
+
   &__body {
+    max-width: 75rem;
+    padding: 1em;
     font-size: 80%;
+    margin: auto;
+
+    // Reduce sizes of content as much as possible
+    .card,
+    .card__content {
+      margin: 0;
+      padding: 0;
+      border: none;
+    }
+
+    ul {
+      margin-bottom: 0;
+    }
   }
 }

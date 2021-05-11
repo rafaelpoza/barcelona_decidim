@@ -1,18 +1,5 @@
 <div class="card budget-summary" data-progress-reference data-safe-url="<%= budget_url(budget) %>">
   <div class="card__content">
-    <div class="callout warning voting-rules">
-      <div class="row">
-        <div class="columns medium-8 large-9">
-          <h3 class="heading3">
-            <%= t(".rules.title") %>
-          </h3>
-          <ul>
-            <%= raw current_rule_explanation %>
-          </ul>
-        </div>
-      </div>
-    </div>
-
     <h3 class="heading3">
       <% if current_order_checked_out? %>
         <%= t(".checked_out.title") %>
@@ -27,6 +14,7 @@
         <% end %>
       <% end %>
     </h3>
+
     <p>
       <% if current_order_checked_out? %>
         <%= raw current_rule_description %>
@@ -34,6 +22,19 @@
         <%= raw t(".checked_out.description", cancel_link: link_to(t(".cancel_order"), budget_order_path(return_to: "budget"), method: :delete, class: "cancel-order", data: { confirm: t(".are_you_sure") })) %>
       <% end %>
     </p>
+
+    <div class="callout warning voting-rules">
+      <div class="row">
+        <div class="columns medium-8 large-9">
+          <h3 class="heading3">
+            <%= t(".rules.title") %>
+          </h3>
+          <ul>
+            <%= raw current_rule_explanation %>
+          </ul>
+        </div>
+      </div>
+    </div>
 
     <% if current_order.projects_rule? %>
       <div class="budget-summary__total" data-total-allocation="<%= current_order.available_allocation %>">
