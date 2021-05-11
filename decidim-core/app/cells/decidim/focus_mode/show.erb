@@ -1,5 +1,5 @@
-<div class="focus-mode">
-  <nav class="focus-mode__bar" data-topbar role="navigation" data-options="sticky_on: large">
+<div id="focus-mode" class="focus-mode" data-closable>
+  <nav class="focus-mode__bar">
     <div class="focus-mode__bar--left">
     </div>
     <span class="focus-mode__title">
@@ -12,13 +12,17 @@
       <span class="focus-mode__user">
         <%= current_user.name %>
       </span>
-      <button class="close-button focus-mode__close" data-toggle="focus-mode--on" aria-label="Close focus mode" type="button">
+      <button class="close-button focus-mode__close" data-close data-toggle="off-focus-mode" aria-label="Close focus mode" type="button">
         <span aria-hidden="true">×</span>
       </button>
     </div>
-
   </nav>
-  <%= yield %>
+
+  <div class="focus-mode__body">
+    <%= yield %>
+  </div>
 </div>
 
-<%= yield %>
+<div id="off-focus-mode" class="hide" data-toggler=".hide">
+  <%= yield %>
+</div>
