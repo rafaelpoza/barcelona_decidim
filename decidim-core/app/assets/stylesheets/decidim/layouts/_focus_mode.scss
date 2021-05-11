@@ -1,0 +1,35 @@
+.focus-mode {
+  position: fixed;
+  z-index: 10000;
+  width: 100%;
+  top: 0;
+  left: 0;
+  background: $light-gray;
+
+  &__title {
+    text-align: center;
+  }
+
+  &__bar {
+    padding: 0.5em;
+    display: grid;
+    grid-template-columns: 25% 50% 25%;
+    align-items: center;
+
+    &--right {
+      display: flex;
+      justify-content: right;
+      align-items: center;
+      gap: 1em;
+      text-align: right;
+    }
+  }
+
+  &__close {
+    position: relative;
+    margin: 0;
+    right: 0;
+    top: 0;
+    line-height: 0.5em;
+  }
+}
