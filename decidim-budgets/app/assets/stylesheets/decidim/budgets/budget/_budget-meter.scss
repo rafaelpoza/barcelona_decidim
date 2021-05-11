@@ -10,10 +10,6 @@
     text-align: center;
   }
 
-  @include breakpoint(medium){
-    display: flex;
-  }
-
   .button{
     margin-bottom: 0;
   }
@@ -42,7 +38,9 @@
   @include breakpoint(mediumlarge){
     padding: 1rem 4rem;
   }
+}
 
+.budget-summary__progress--bar{
   display: flex;
 }
 

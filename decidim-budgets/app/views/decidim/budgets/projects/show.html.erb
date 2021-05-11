@@ -16,7 +16,7 @@ edit_link(
 
 <div class="row column view-header">
   <% unless voting_finished? || voting_limited?(budget) %>
-    <%= render partial: "budget_summary", locals: { include_heading: false } %>
+    <%= render partial: "order_progress" %>
   <% end %>
 
   <div class="m-bottom">

@@ -8,7 +8,7 @@
       <%= t("decidim.budgets.projects.projects_for", name: translated_attribute(budget.title)) %>
     </h2>
   <% elsif !voting_limited?(budget) %>
-    <%= render partial: "budget_summary", locals: { include_heading: true } %>
+    <%= render partial: "order_progress" %>
   <% end %>
 </div>
 
