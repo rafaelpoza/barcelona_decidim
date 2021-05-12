@@ -7,7 +7,6 @@ module Decidim
       include FilterResource
       include NeedsCurrentOrder
       include Decidim::Budgets::Orderable
-      helper Decidim::FocusModeHelper
 
       helper_method :projects, :project, :budget
 
