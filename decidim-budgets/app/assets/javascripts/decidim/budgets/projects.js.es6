@@ -1,3 +1,4 @@
+// = require decidim/focus_mode
 // = require_self
 
 $(() => {
