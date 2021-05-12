@@ -1,6 +1,6 @@
 .focus-mode {
   position: fixed;
-  z-index: 10000;
+  z-index: 1000;
   width: 100%;
   top: 0;
   left: 0;
@@ -54,6 +54,10 @@
 
     ul {
       margin-bottom: 0;
+    }
+
+    .budget-summary__selected-list {
+      margin-top: 0;
     }
   }
 }

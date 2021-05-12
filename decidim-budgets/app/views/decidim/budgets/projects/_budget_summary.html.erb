@@ -72,15 +72,15 @@
     <div>
       <span class="mini-title">
         <%= t(".assigned") %>
-        <%= render partial: "order_total_budget" %>
+        <%= render partial: "decidim/budgets/projects/order_total_budget" %>
       </span>
     </div>
 
     <%= cell("decidim/budgets/budget_information_modal", budget) %>
   </div>
 
-  <%= render partial: "order_selected_projects" %>
+  <%= render partial: "decidim/budgets/projects/order_selected_projects" %>
 </div>
 
-<%= render partial: "budget_excess" %>
-<%= render partial: "budget_confirm" %>
+<%= render partial: "decidim/budgets/projects/budget_excess" %>
+<%= render partial: "decidim/budgets/projects/budget_confirm" %>
