@@ -32,4 +32,9 @@ $(() => {
 
   $closer.on("click", focusModeOff);
   $opener.on("click", focusModeOn);
+
+  if (($focusModeOn).data("focus-mode-status") == "open") {
+    // todo
+    // todo: store cookie
+  }
 });
