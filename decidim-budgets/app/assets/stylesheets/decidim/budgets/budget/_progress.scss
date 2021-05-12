@@ -17,3 +17,15 @@
   padding-left: 1rem;
   padding-right: .5rem;
 }
+
+.progress-text-wrapper {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 1em;
+}
+
+.progress-text {
+  font-size: 1em;
+}

@@ -39,6 +39,10 @@ module Decidim
         end
       end
 
+      def show_progressbox?
+        !current_order&.projects_rule? && !current_order&.minimum_projects_rule?
+      end
+
       def budget_confirm_disabled_attr
         return if current_order_can_be_checked_out?
 
