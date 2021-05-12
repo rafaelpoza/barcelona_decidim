@@ -6,35 +6,37 @@ $(() => {
   const $closer = $("[data-focus-close]");
   const $opener = $("[data-focus-open]");
 
-  const FADEOUT_TIME = 300;
+  const FADEOUT_TIME = 200;
 
-  const focusModeOn = function() {
-    $opener.fadeOut(FADEOUT_TIME);
-    $content.fadeOut(FADEOUT_TIME, () => {
+  const focusModeOn = function(fadeTime) {
+    $opener.fadeOut(fadeTime);
+    $opener.fadeOut(fadeTime);
+    $content.fadeOut(fadeTime, () => {
       $content.detach().prependTo($wrapper);
-      $focusModeOn.fadeIn(FADEOUT_TIME, () => {
-        $content.fadeIn(FADEOUT_TIME, () => {});
+      $focusModeOn.fadeIn(fadeTime, () => {
+        $content.fadeIn(fadeTime, () => {});
       });
     });
   }
 
-  const focusModeOff = function() {
-    $content.fadeOut(FADEOUT_TIME);
+  const focusModeOff = function(fadeTime) {
+    $content.fadeOut(fadeTime);
 
-    $focusModeOn.fadeOut(FADEOUT_TIME, () => {
+    $focusModeOn.fadeOut(fadeTime, () => {
       $content.detach().prependTo($focusModeOff);
-      $focusModeOff.fadeIn(FADEOUT_TIME, () => {
-        $content.fadeIn(FADEOUT_TIME, () => {});
-        $opener.fadeIn(FADEOUT_TIME);
+      $focusModeOff.fadeIn(fadeTime, () => {
+        $content.fadeIn(fadeTime, () => {});
+        $opener.fadeIn(fadeTime);
       });
     });
   }
 
-  $closer.on("click", focusModeOff);
-  $opener.on("click", focusModeOn);
+  $closer.on("click", () => { focusModeOff(FADEOUT_TIME) });
+  $opener.on("click", () => { focusModeOn(FADEOUT_TIME) });
 
-  if (($focusModeOn).data("focus-mode-status") == "open") {
-    // todo
-    // todo: store cookie
+  if (($focusModeOn).data("focus-state") == "on") {
+    focusModeOn(0);
+  } else {
+    focusModeOff(0);
   }
 });
