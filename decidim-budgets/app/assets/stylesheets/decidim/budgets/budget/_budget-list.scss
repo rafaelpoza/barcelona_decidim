@@ -1,10 +1,6 @@
 .budget-list{
   margin-bottom: 2rem;
 
-  &#highlighted-budgets {
-    box-shadow: 8px 8px 0 var(--primary);
-  }
-
   &__item{
     padding: 0;
     background: $card-bg;
@@ -22,10 +18,6 @@
       border-bottom-left-radius: $card-border-radius;
       border-bottom-right-radius: $card-border-radius;
       border-bottom: $border;
-    }
-
-    &.budget--highlighted {
-      // background-color: rgba(var(--primary-rgb), 0.2);
     }
   }
 
