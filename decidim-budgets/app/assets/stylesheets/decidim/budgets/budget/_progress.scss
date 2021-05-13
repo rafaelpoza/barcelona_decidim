@@ -4,6 +4,15 @@
   position: relative;
 }
 
+.budget-progress .progress-meter{
+  background-color: rgba(var(--success-rgb), 0.5);
+
+  .progress-meter-text{
+    color: $body-font-color; 
+    font-size: 1rem;
+  }
+}
+
 .progress-meter--minimum{
   background: repeating-linear-gradient(-55deg, rgba(white, .2), rgba(white, .2) 8px, rgba(black, .03) 8px, rgba(black, .03) 16px);
   position: absolute;
