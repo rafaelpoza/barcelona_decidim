@@ -202,6 +202,8 @@ en:
             one: project selected
             other: projects selected
           view: View
+        order_total_budget:
+          amount_assigned: "You have assigned %{amount}"
         orders:
           highest_cost: Highest cost
           label: Order projects by

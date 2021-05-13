@@ -1,0 +1,10 @@
+<% title = current_order.projects_rule? ? t("total_projects", scope: i18n_scope) : t("total_budget", scope: i18n_scope) %>
+<% amount = current_order.projects_rule? ? current_order.maximum_projects : budget_to_currency(budget.total_budget) %>
+
+<div class="budget-summary__total" data-total-allocation="<%= current_order.available_allocation %>" data-total-budget="<%= budget.total_budget if current_order.projects_rule? %>">
+  <span class="h6"><%= title %>
+    <strong>
+      <%= amount %>
+    </strong>
+  </span>
+</div>
