@@ -154,6 +154,7 @@ en:
             description: This project exceeds the maximum number of projects and cannot be added. If you want, you can delete a project you have already selected to add, or make your vote according to your preferences.
             title: Maximum projects exceeded
         budget_summary:
+          amount_assigned: "You have assigned %{amount}"
           are_you_sure: Are you sure you want to cancel your vote?
           assigned: 'Assigned:'
           cancel_order: delete your vote and start over
@@ -202,8 +203,6 @@ en:
             one: project selected
             other: projects selected
           view: View
-        order_total_budget:
-          amount_assigned: "You have assigned %{amount}"
         orders:
           highest_cost: Highest cost
           label: Order projects by

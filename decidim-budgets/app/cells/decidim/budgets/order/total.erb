@@ -1,0 +1,7 @@
+<div class="budget-summary__total" data-total-allocation="<%= current_order.available_allocation %>" data-total-budget="<%= budget.total_budget if current_order.projects_rule? %>">
+  <span class="h6"><%= order_total_title %>
+    <strong>
+      <%= order_total_amount %>
+    </strong>
+  </span>
+</div>
