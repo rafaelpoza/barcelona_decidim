@@ -16,5 +16,9 @@ module Decidim
     def title
       options[:title]
     end
+
+    def opener_button
+      options[:opener_button]
+    end
   end
 end
