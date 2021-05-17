@@ -202,6 +202,9 @@ en:
           selected_projects:
             one: project selected
             other: projects selected
+          selected_projects_count:
+            one: "<strong>%{count}</strong> project selected"
+            other: "<strong>%{count}</strong> projects selected"
           view: View
         orders:
           highest_cost: Highest cost

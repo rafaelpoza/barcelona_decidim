@@ -201,6 +201,9 @@ es:
           selected_projects:
             one: proyecto seleccionado
             other: proyectos seleccionados
+          selected_projects_count:
+            one: "<strong>%{count}</strong> proyecto seleccionado"
+            other: "<strong>%{count}</strong> proyectos seleccionados"
           view: Ver
         orders:
           highest_cost: Mayor coste

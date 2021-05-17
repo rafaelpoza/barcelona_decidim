@@ -2,7 +2,7 @@
   <% if current_order&.projects&.any? %>
     <div class="card__content budget-summary__selected">
       <button data-toggle="reveal-selected">
-        <strong><%= current_order.projects.size %> </strong><%= t("selected_projects", scope: "decidim.budgets.projects.order_selected_projects", count: current_order.projects.size) %>
+        <%= selected_projects_count %>
         <%= icon("caret-bottom", class:"icon--small", aria_label: t("view", scope: "decidim.budgets.projects.order_selected_projects"), role: "img") %>
       </button>
       <div id="reveal-selected" class="hide" data-toggler=".hide">

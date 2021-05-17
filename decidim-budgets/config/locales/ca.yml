@@ -201,6 +201,9 @@ ca:
           selected_projects:
             one: projecte seleccionat
             other: projectes seleccionats
+          selected_projects_count:
+            one: "<strong>%{count}</strong> projecte seleccionat"
+            other: "<strong>%{count}</strong> projectes seleccionats"
           view: Veure
         orders:
           highest_cost: Major cost
