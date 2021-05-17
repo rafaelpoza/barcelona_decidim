@@ -77,13 +77,13 @@ module Decidim
           progress_amount
         end
       end
-      
+
       def progress_minimum
         current_order.component.settings.vote_threshold_percent
       end
-      
+
       def selected_projects_count
-         t("selected_projects_count", scope: "decidim.budgets.projects.order_selected_projects", count: current_order.projects.size)
+        t("selected_projects_count", scope: "decidim.budgets.projects.order_selected_projects", count: current_order.projects.size)
       end
 
       def order_total_amount
