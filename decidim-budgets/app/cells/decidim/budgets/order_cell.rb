@@ -64,6 +64,22 @@ module Decidim
         end
       end
 
+      def progress_amount
+        t("amount_assigned", amount: budget_to_currency(current_order&.total_budget.to_f), scope: "decidim.budgets.projects.budget_summary")
+      end
+
+      def progress_projects
+        [current_order.projects.count, current_order.maximum_projects].join(" / ")
+      end
+
+      def progress_total
+        if current_order.projects_rule?
+          progress_projects
+        else
+          progress_amount
+        end
+      end
+
       def order_total_amount
         current_order.projects_rule? ? current_order.maximum_projects : budget_to_currency(budget.total_budget)
       end

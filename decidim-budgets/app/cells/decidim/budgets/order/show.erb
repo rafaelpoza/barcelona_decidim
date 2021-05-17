@@ -6,13 +6,30 @@
         <%= content_tag :small, subtitle if subtitle.present? %>
       </h3>
 
-      <%= render :rules %>
+      <div class="row column voting-rules">
+        <div class="callout warning">
+          <div class="row">
+            <div class="columns medium-8 large-9">
+              <h5 class="heading5">
+                <%= rules_title %>
+              </h5>
+              <ul>
+                <%= raw rules_text(:instruction) %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
 
-      <p>
-        <%= raw description %>
-      </p>
+      <p><%= raw description %></p>
 
-      <%= render :total %>
+      <div class="budget-summary__total" data-total-allocation="<%= current_order.available_allocation %>" data-total-budget="<%= budget.total_budget if current_order.projects_rule? %>">
+        <span class="h6"><%= order_total_title %>
+          <strong>
+            <%= order_total_amount %>
+          </strong>
+        </span>
+      </div>
 
       <div class="budget-summary__progressbox budget-summary__progress--bar" data-current-allocation="<%= current_order ? current_order.total : 0 %>">
         <div class="progress budget-progress" role="progressbar" aria-valuenow="<%= current_order_budget_percent %>" aria-valuetext="<%= current_order_budget_percent %>%" aria-valuemin="0" aria-valuemax="100">
@@ -37,7 +54,6 @@
     <%= render partial: "decidim/budgets/projects/order_selected_projects.html" %>
   </div>
 
-  <%= render :excess_modal %>
-
+  <%= render partial: "decidim/budgets/projects/budget_excess_modal.html" %>
   <%= render partial: "decidim/budgets/projects/budget_confirm.html" %>
 </div>
