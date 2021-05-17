@@ -1,20 +1,9 @@
 <div class="<%= card_class %> budget-list__item">
   <div class="budget-list__text flex-horizontal">
     <%= link_to budget_path(budget), class: link_class do %>
-      <h4 class="card--list__heading">
-        <% if voted? && !voting_finished? %>
-          <span class="button tiny success card--list__check card--list__check--disabled card--list__check--inline">
-            <%= icon "check", class: "icon--small", role: "img" %>
-          </span>
-        <% elsif progress? && !voting_finished? %>
-          <span class="button tiny hollow warning card--list__check card--list__check--disabled card--list__check--inline">
-            <%= icon "pin", class: "icon--small", role: "img" %>
-          </span>
-        <% end %>
+      <h5 class="card--list__heading">
         <%= translated_attribute(title) %>
-
-        <%= icon "chevron-right", class: "icon--small", role: "img" %>
-      </h4>
+      </h5>
     <% end %>
 
     <h5>
@@ -25,6 +14,20 @@
 
     <%= decidim_sanitize html_truncate(translated_attribute(description), length: 140) %>
   </div>
+
+  <% if !voting_finished? %>
+    <div class="budget-list__icon mr-s">
+      <% if voted? %>
+        <span class="button tiny success card--list__check card--list__check--disabled card--list__check--inline">
+          <%= icon "check", class: "icon--small", role: "img" %>
+        </span>
+      <% elsif progress? %>
+        <span class="button tiny warning card--list__check card--list__check--disabled card--list__check--inline">
+          <%= icon "bookmark", class: "icon--small", role: "img" %>
+        </span>
+      <% end %>
+    </div>
+  <% end %>
 
   <div class="budget-list__data">
     <%= link_to budget_path(budget), class: "button button--sc expanded #{button_class} mb-none" do %>
