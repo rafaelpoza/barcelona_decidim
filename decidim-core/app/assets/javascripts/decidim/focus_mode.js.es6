@@ -9,8 +9,8 @@ $(() => {
   const FADEOUT_TIME = 200;
 
   const focusModeOn = function(fadeTime) {
-    $opener.fadeOut(fadeTime);
-    $opener.fadeOut(fadeTime);
+    if ($opener.length) $opener.fadeOut(fadeTime);
+
     $content.fadeOut(fadeTime, () => {
       $content.detach().prependTo($wrapper);
       $focusModeOn.fadeIn(fadeTime, () => {
@@ -26,13 +26,13 @@ $(() => {
       $content.detach().prependTo($focusModeOff);
       $focusModeOff.fadeIn(fadeTime, () => {
         $content.fadeIn(fadeTime, () => {});
-        $opener.fadeIn(fadeTime);
+        if ($opener.length) $opener.fadeIn(fadeTime);
       });
     });
   }
 
   $closer.on("click", () => { focusModeOff(FADEOUT_TIME) });
-  $opener.on("click", () => { focusModeOn(FADEOUT_TIME) });
+  if ($opener.length) $opener.on("click", () => { focusModeOn(FADEOUT_TIME) });
 
   if (($focusModeOn).data("focus-state") == "on") {
     focusModeOn(0);

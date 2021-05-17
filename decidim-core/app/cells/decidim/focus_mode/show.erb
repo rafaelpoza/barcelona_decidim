@@ -28,7 +28,9 @@
 </div>
 
 <div id="off-focus-mode" data-focus-off>
-  <button class="button small" data-focus-open>
-    <%= t(".focus_mode") %>
-  </button>
+  <% if opener_button %>
+    <button class="button small" data-focus-open>
+      <%= t(".focus_mode") %>
+    </button>
+  <% end %>
 </div>
