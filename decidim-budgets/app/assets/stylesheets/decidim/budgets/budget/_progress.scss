@@ -5,7 +5,9 @@
 }
 
 .budget-progress .progress-meter{
-  background-color: rgba(var(--success-rgb), 0.5);
+  &:not(&--minimum) {
+    background-color: tint($success, 80%);
+  }
 
   .progress-meter-text{
     color: $body-font-color; 
