@@ -12,7 +12,7 @@ describe "Explore Budgets", :slow, type: :system do
     it "redirects to the only budget details" do
       visit_component
 
-      expect(page).to have_content("More information")
+      expect(page).to have_content("Order projects")
     end
   end
 

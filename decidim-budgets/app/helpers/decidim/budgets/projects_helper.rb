@@ -53,6 +53,24 @@ module Decidim
       def current_order_can_be_checked_out?
         current_order&.can_checkout?
       end
+
+      def progress_amount
+        t("amount_assigned", amount: budget_to_currency(current_order&.total_budget.to_f), scope: "decidim.budgets.projects.budget_summary")
+      end
+
+      def progress_total_text
+        if current_order.projects_rule?
+          [current_order.projects.count, current_order.maximum_projects].join(" / ")
+        elsif current_order.minimum_projects_rule?
+          selected_projects_count
+        else
+          progress_amount
+        end
+      end
+
+      def selected_projects_count
+        t("selected_projects_count", scope: "decidim.budgets.projects.order_selected_projects", count: current_order.projects.size)
+      end
     end
   end
 end
