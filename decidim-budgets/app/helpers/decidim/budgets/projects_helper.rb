@@ -69,7 +69,7 @@ module Decidim
       end
 
       def selected_projects_count
-        t("selected_projects_count", scope: "decidim.budgets.projects.order_selected_projects", count: current_order.projects.size)
+        raw t("selected_projects_count", scope: "decidim.budgets.projects.order_selected_projects", count: current_order.projects.size)
       end
     end
   end
