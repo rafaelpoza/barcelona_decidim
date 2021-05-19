@@ -31,7 +31,7 @@ module Decidim
 
       def back_link
         return if current_workflow.single?
-        content_tag :p, class: "budget-summary__border-top card__content" do
+        content_tag :p do
           safe_join([
             icon("arrow-thin-left", class: "icon--small"),
             link_to(t("back_to", scope: i18n_scope, component_name: translated_attribute(current_component.name)), budgets_path)
