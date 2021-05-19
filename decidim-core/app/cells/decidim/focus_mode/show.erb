@@ -10,7 +10,7 @@
 
     <div class="focus-mode__bar--right">
       <span class="focus-mode__user">
-        <%= current_user.name %>
+        <%= current_user&.name %>
       </span>
       <button class="close-button focus-mode__close" aria-label="Close focus mode" type="button" data-focus-close>
         <span aria-hidden="true">&times;</span>

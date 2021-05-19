@@ -10,7 +10,7 @@ module Decidim
     include LayoutHelper
 
     def show(&block)
-      render(&block) if current_user
+      render(&block)
     end
 
     def title
