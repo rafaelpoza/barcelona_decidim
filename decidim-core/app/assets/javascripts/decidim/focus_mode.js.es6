@@ -6,10 +6,14 @@ $(() => {
   const $closer = $("[data-focus-close]");
   const $opener = $("[data-focus-open]");
 
+  const $background = $(".title-bar, [data-set='nav-holder'], .process-header");
+
   const FADEOUT_TIME = 200;
 
   const focusModeOn = function(fadeTime) {
     if ($opener.length) $opener.fadeOut(fadeTime);
+
+    $background.animate({ opacity: 0 }, fadeTime);
 
     $content.fadeOut(fadeTime, () => {
       $content.detach().prependTo($wrapper);
@@ -21,6 +25,7 @@ $(() => {
 
   const focusModeOff = function(fadeTime) {
     $content.fadeOut(fadeTime);
+    $background.animate({ opacity: 1 }, fadeTime);
 
     $focusModeOn.fadeOut(fadeTime, () => {
       $content.detach().prependTo($focusModeOff);
@@ -32,9 +37,10 @@ $(() => {
   }
 
   $closer.on("click", () => { focusModeOff(FADEOUT_TIME) });
+
   if ($opener.length) $opener.on("click", () => { focusModeOn(FADEOUT_TIME) });
 
-  if (($focusModeOn).data("focus-state") == "on") {
+  if (window.matchMedia('(min-width: 800px)').matches) {
     focusModeOn(0);
   } else {
     focusModeOff(0);
