@@ -104,11 +104,6 @@ en:
           update: "%{user_name} updated the %{resource_name} project in the %{space_name} space"
       budget:
         view: View all budget projects
-      budget_information_modal:
-        back_to: Back to %{component_name}
-        close_modal: Close modal
-        continue: Continue
-        more_information: More information
       budgets_list:
         cancel_order:
           more_than_one: delete your vote on %{name} and start over
@@ -135,6 +130,7 @@ en:
             title: Title
       order_summary_mailer:
         order_summary:
+          more_information: More information
           selected_projects: 'The projects that you have selected are:'
           subject: You have voted on the %{space_name} participatory space
           voted_on_space: You have voted on the %{budget_name} budget for the %{space_name} participatory space.
@@ -160,6 +156,7 @@ en:
           amount_assigned: "You have assigned %{amount}"
           are_you_sure: Are you sure you want to cancel your vote?
           assigned: 'Assigned:'
+          back_to: Back to %{component_name}
           cancel_order: delete your vote and start over
           checked_out:
             description: You've already voted for the budget. If you've changed your mind, you can %{cancel_link}.
@@ -167,6 +164,7 @@ en:
           minimum_projects_rule:
             description: What projects do you think we should allocate budget for? Select at least %{minimum_number} projects you want and vote according to your preferences to define the budget.
             instruction: "<li>Select at least %{minimum_number} projects you want and vote according to your preferences to define the budget.</li>"
+          more_information: More information
           projects_rule:
             description: What projects do you think we should allocate budget for? Select at least %{minimum_number} and up to %{maximum_number} projects you want and vote according to your preferences to define the budget.
             instruction: "<li>Select at least %{minimum_number} and up to %{maximum_number} projects you want and vote according to your preferences to define the budget.</li>"
@@ -249,7 +247,7 @@ en:
                 budget_voting_rule_only_one: Only one voting rule must be enabled
                 budget_voting_rule_required: One voting rule is required
             landing_page_content: Budgets landing page
-            more_information_modal: More information modal
+            more_information_modal: More information
             projects_per_page: Projects per page
             resources_permissions_enabled: Actions permissions can be set for each project
             scope_id: Scope
@@ -273,7 +271,7 @@ en:
             highlighted_heading: Highlighted heading
             landing_page_content: Budgets landing page
             list_heading: List heading
-            more_information_modal: More information modal
+            more_information_modal: More information
             show_votes: Show votes
             title: Title
             votes: Voting

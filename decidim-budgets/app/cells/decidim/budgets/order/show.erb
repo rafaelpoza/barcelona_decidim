@@ -21,7 +21,17 @@
         </div>
       </div>
 
-      <p><%= raw description %></p>
+      <%= description %>
+
+      <% if more_information %>
+        <button data-toggle="budget-more-information">
+        <%= t("more_information", scope: i18n_scope) %>
+          <%= icon("caret-bottom", class:"icon--small", aria_label: t("view", scope: "decidim.budgets.projects.order_selected_projects"), role: "img") %>
+        </button>
+        <div id="budget-more-information" class="hide mb-s" data-toggler=".hide">
+          <%= more_information %>
+        </div>
+      <% end %>
 
       <div class="budget-summary__total" data-total-allocation="<%= current_order.available_allocation %>" data-total-budget="<%= budget.total_budget if current_order.projects_rule? %>">
         <span class="h6"><%= order_total_title %>
@@ -47,11 +57,11 @@
           </button>
         <% end %>
       </div>
-
-      <%= cell("decidim/budgets/budget_information_modal", budget) %>
     </div>
 
     <%= render partial: "decidim/budgets/projects/order_selected_projects.html" %>
+
+    <%= back_link %>
   </div>
 
   <%= render partial: "decidim/budgets/projects/budget_excess_modal.html" %>

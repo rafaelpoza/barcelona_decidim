@@ -26,7 +26,17 @@ module Decidim
       end
 
       def description
-        current_order_checked_out? ? checked_out_description : rules_text(:description)
+        content_tag(:p, raw(checked_out_description)) if current_order_checked_out?
+      end
+
+      def back_link
+        return if current_workflow.single?
+        content_tag :p, class: "budget-summary__border-top card__content" do
+          safe_join([
+            icon("arrow-thin-left", class: "icon--small"),
+            link_to(t("back_to", scope: i18n_scope, component_name: translated_attribute(current_component.name)), budgets_path)
+          ])
+        end
       end
 
       def checked_out_description
@@ -74,6 +84,10 @@ module Decidim
 
       def order_total_title
         t(current_order.projects_rule? ? "total_projects" : "total_budget", scope: i18n_scope)
+      end
+
+      def more_information
+        translated_attribute(current_settings.more_information_modal).presence || translated_attribute(settings.more_information_modal)
       end
 
       def i18n_scope
