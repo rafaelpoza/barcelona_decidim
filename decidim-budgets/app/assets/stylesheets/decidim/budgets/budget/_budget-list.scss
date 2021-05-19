@@ -19,21 +19,24 @@
       border-bottom-right-radius: $card-border-radius;
       border-bottom: $border;
     }
-    display: grid;
-    grid-template-columns: 1fr 40px;
-    
-    .budget-list__data {
-      grid-column: span 2;
-      background: none;
-    }
-    
-    @include breakpoint(medium){
-      grid-template-columns: 1fr;
-      grid-template-rows: 1fr;
+
+    &-cell {
+      display: grid;
+      grid-template-columns: 1fr 40px;
       
       .budget-list__data {
-        background: $card-secondary-bg;
-        grid-column: 3;
+        grid-column: span 2;
+        background: none;
+      }
+      
+      @include breakpoint(medium){
+        grid-template-columns: 1fr 40px 15em;
+        grid-template-rows: 1fr;
+        
+        .budget-list__data {
+          background: $card-secondary-bg;
+          grid-column: 3;
+        }
       }
     }
   }
