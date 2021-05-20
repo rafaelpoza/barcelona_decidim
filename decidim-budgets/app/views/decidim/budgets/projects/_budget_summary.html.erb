@@ -1,5 +1,11 @@
 <%= focus_mode({ title: translated_attribute(current_component.participatory_space.title), opener_button: false }) do %>
 
+  <% unless current_workflow.single? %>
+    <p>
+      <%= link_to t(:back_to, scope: "decidim.budgets.budget_information_modal", component_name: translated_attribute(current_component.name)), budgets_path %>
+    </p>
+  <% end %>
+
   <div class="row column voting-rules">
     <div class="callout warning">
       <div class="row">
@@ -14,8 +20,9 @@
       </div>
     </div>
   </div>
+
   <div class="card budget-summary" data-progress-reference data-safe-url="<%= budget_url(budget) %>">
-    <div class="card__content">
+    <div class="card__content">    
       <% if include_heading %>
         <% if current_order_checked_out? %>
           <h3 class="heading3">
@@ -40,6 +47,8 @@
           </p>
         <% end %>
       <% end %>
+
+      <%= cell("decidim/budgets/budget_information_modal", budget) %>
 
       <% if current_order.projects_rule? %>
         <div class="budget-summary__total" data-total-allocation="<%= current_order.available_allocation %>">
@@ -67,8 +76,6 @@
           <%= render partial: "order_total_budget" %>
         </span>
       </div>
-
-      <%= cell("decidim/budgets/budget_information_modal", budget) %>
     </div>
 
     <%= render partial: "order_selected_projects" %>
