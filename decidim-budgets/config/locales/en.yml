@@ -243,6 +243,7 @@ en:
                 budget_voting_rule_only_one: Only one voting rule must be enabled
                 budget_voting_rule_required: One voting rule is required
             landing_page_content: Budgets landing page
+            landing_page_title: Budgets landing page title
             more_information_modal: More information modal
             projects_per_page: Projects per page
             resources_permissions_enabled: Actions permissions can be set for each project
@@ -266,6 +267,7 @@ en:
             comments_blocked: Comments blocked
             highlighted_heading: Highlighted heading
             landing_page_content: Budgets landing page
+            landing_page_title: Budgets landing page title
             list_heading: List heading
             more_information_modal: More information modal
             show_votes: Show votes
