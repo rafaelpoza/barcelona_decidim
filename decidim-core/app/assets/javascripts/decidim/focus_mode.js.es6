@@ -36,13 +36,19 @@ $(() => {
     });
   }
 
-  $closer.on("click", () => { focusModeOff(FADEOUT_TIME) });
+  const initializeFocusMode = () => {
+    $closer.on("click", () => { focusModeOff(FADEOUT_TIME) });
 
-  if ($opener.length) $opener.on("click", () => { focusModeOn(FADEOUT_TIME) });
+    if ($opener.length) $opener.on("click", () => { focusModeOn(FADEOUT_TIME) });
 
-  if (window.matchMedia('(min-width: 800px)').matches) {
-    focusModeOn(0);
-  } else {
-    focusModeOff(0);
+    if (window.matchMedia('(min-width: 800px)').matches) {
+      focusModeOn(0);
+    } else {
+      focusModeOff(0);
+    }
   }
+
+  initializeFocusMode();
+
+  $(window).resize(initializeFocusMode);
 });
