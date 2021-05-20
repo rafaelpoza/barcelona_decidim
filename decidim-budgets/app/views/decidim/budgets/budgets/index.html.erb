@@ -1,5 +1,19 @@
 <%= render partial: "decidim/shared/component_announcement" %>
 
-<%= cell("decidim/budgets/budgets_header", current_workflow) %>
+<div class="row">
+  <div class="columns medium-7 mediumlarge-8">
+    <%= cell("decidim/budgets/budgets_header", current_workflow) %>
 
-<%= cell("decidim/budgets/budgets_list", current_workflow) %>
+    <%= cell("decidim/budgets/budgets_list", current_workflow) %>
+  </div>
+
+  <% if current_component.participatory_space.try(:start_date) %>
+    <div class="columns section view-side medium-4">
+      <div class="card extra">
+        <div class="card__content">
+          <%= cell("decidim/date", { start: current_component.participatory_space.try(:start_date), end: current_component.participatory_space.try(:end_date) }) %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

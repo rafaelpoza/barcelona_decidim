@@ -103,6 +103,7 @@ Decidim.register_component(:budgets) do |component|
     settings.attribute :show_votes, type: :boolean, default: false
     settings.attribute :announcement, type: :text, translated: true, editor: true
 
+    settings.attribute :landing_page_title, type: :text, translated: true
     settings.attribute :landing_page_content, type: :text, translated: true, editor: true
     settings.attribute :more_information_modal, type: :text, translated: true
     settings.attribute :announcement, type: :text, translated: true, editor: true
