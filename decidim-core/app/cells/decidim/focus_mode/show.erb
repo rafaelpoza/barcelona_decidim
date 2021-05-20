@@ -9,9 +9,11 @@
     </span>
 
     <div class="focus-mode__bar--right">
-      <span class="focus-mode__user">
-        <%= user %>
-      </span>
+      <% if user %>
+        <span class="focus-mode__user">
+          <%= user %>
+        </span>
+      <% end %>
       <button class="close-button focus-mode__close" aria-label="Close focus mode" type="button" data-focus-close>
         <span aria-hidden="true">&times;</span>
       </button>
