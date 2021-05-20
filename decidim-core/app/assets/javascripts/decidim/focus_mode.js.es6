@@ -5,6 +5,7 @@ $(() => {
   const $content = $("[data-focus-body]");
   const $closer = $("[data-focus-close]");
   const $opener = $("[data-focus-open]");
+  const $flashMessagesContainer = $(".focus-mode__flash-messages");
 
   const $background = $(".title-bar, [data-set='nav-holder'], .process-header");
 
@@ -12,6 +13,10 @@ $(() => {
   const $cookieButton = $(".cookie-bar__button");
 
   const FADEOUT_TIME = 200;
+
+  const moveFlashMessages = () => {
+    $(".flash.callout").appendTo($flashMessagesContainer);
+  };
 
   const overlayHeight = () => {
     var h = 0;
@@ -48,6 +53,7 @@ $(() => {
 
     $background.animate({ opacity: 0 }, fadeTime);
     moveOverlay();
+    moveFlashMessages();
 
     $content.fadeOut(fadeTime, () => {
       $content.detach().prependTo($wrapper);
