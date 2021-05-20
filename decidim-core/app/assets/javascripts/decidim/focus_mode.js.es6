@@ -8,12 +8,46 @@ $(() => {
 
   const $background = $(".title-bar, [data-set='nav-holder'], .process-header");
 
+  const $overlay = $(".omnipresent-banner, .cookie-warning");
+  const $cookieButton = $(".cookie-bar__button");
+
   const FADEOUT_TIME = 200;
+
+  const overlayHeight = () => {
+    var h = 0;
+    $overlay.outerHeight((i, v) => {
+      if ($($overlay[i]).is(":visible")) h += v;
+    });
+    return h;
+  };
+
+  const moveToShowOverlay = () => {
+    const top = $(document).scrollTop();
+    const height = overlayHeight();
+
+    if (top <= height) {
+      $focusModeOn.css({ top: `${height}px` })
+    } else {
+      $focusModeOn.css({ top: "0px" })
+    }
+  }
+
+  const moveOverlay = () => {
+    if (!$overlay.length) return;
+
+    if ($cookieButton.length) {
+      $cookieButton.on("click", moveToShowOverlay);
+    }
+
+    moveToShowOverlay();
+    window.addEventListener("scroll", moveToShowOverlay);
+  }
 
   const focusModeOn = function(fadeTime) {
     if ($opener.length) $opener.fadeOut(fadeTime);
 
     $background.animate({ opacity: 0 }, fadeTime);
+    moveOverlay();
 
     $content.fadeOut(fadeTime, () => {
       $content.detach().prependTo($wrapper);
