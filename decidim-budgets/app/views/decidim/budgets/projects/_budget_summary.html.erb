@@ -1,4 +1,8 @@
-<%= focus_mode({ title: translated_attribute(current_component.participatory_space.title), opener_button: false }) do %>
+<%= focus_mode(
+  title: translated_attribute(current_component.participatory_space.title),
+  url: Decidim::EngineRouter.main_proxy(current_component).root_path,
+  opener_button: false
+) do %>
 
   <% unless current_workflow.single? %>
     <p>

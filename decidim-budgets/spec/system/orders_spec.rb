@@ -322,6 +322,7 @@ describe "Orders", type: :system do
         # prompt for verifying the page unload. Therefore, `dismiss_prompt` is
         # used instead of `dismiss_confirm`.
         dismiss_prompt do
+          page.find(".focus-mode__close").click
           page.find(".logo-wrapper a").click
         end
 
@@ -491,6 +492,7 @@ describe "Orders", type: :system do
 
         expect(page).to have_content("Budget vote completed")
 
+        page.find(".focus-mode__close").click
         page.find(".logo-wrapper a").click
 
         expect(page).to have_current_path decidim.root_path

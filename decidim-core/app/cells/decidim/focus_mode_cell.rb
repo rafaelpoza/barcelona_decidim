@@ -17,6 +17,12 @@ module Decidim
       options[:title]
     end
 
+    def user
+      return unless current_user
+
+      link_to current_user.name, decidim.profile_path(current_user.nickname)
+    end
+
     def opener_button
       options[:opener_button]
     end

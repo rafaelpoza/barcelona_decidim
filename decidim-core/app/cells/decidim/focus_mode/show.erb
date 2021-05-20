@@ -3,14 +3,14 @@
     <div class="focus-mode__bar--left">
     </div>
     <span class="focus-mode__title">
-      <%= translated_attribute current_organization.name %>
+      <%= link_to translated_attribute(current_organization.name), decidim.root_url(host: current_organization.host), class: "focus-mode__organization-link" %>
       /
       <%= title %>
     </span>
 
     <div class="focus-mode__bar--right">
       <span class="focus-mode__user">
-        <%= current_user&.name %>
+        <%= user %>
       </span>
       <button class="close-button focus-mode__close" aria-label="Close focus mode" type="button" data-focus-close>
         <span aria-hidden="true">&times;</span>
