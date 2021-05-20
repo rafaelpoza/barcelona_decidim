@@ -77,6 +77,20 @@ describe "Orders", type: :system do
             expect(page).to have_content("Select at least 3 projects you want and vote according to your preferences to define the budget.")
           end
         end
+
+        it "shows the project count in the progress bar" do
+          within ".progress-meter-text" do
+            expect(page).to have_content("0 projects selected")
+          end
+
+          within "#project-#{project.id}-item" do
+            page.find(".budget-list__action").click
+          end
+
+          within ".progress-meter-text" do
+            expect(page).to have_content("1 project selected")
+          end
+        end
       end
 
       context "when voting by maximum projects number" do
