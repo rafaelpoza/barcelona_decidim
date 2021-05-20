@@ -1,0 +1,36 @@
+<div id="focus-mode" class="focus-mode" data-focus-on data-focus-state="on">
+  <nav class="focus-mode__bar">
+    <div class="focus-mode__bar--left">
+    </div>
+    <span class="focus-mode__title">
+      <%= translated_attribute current_organization.name %>
+      /
+      <%= title %>
+    </span>
+
+    <div class="focus-mode__bar--right">
+      <span class="focus-mode__user">
+        <%= current_user&.name %>
+      </span>
+      <button class="close-button focus-mode__close" aria-label="Close focus mode" type="button" data-focus-close>
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+  </nav>
+
+  <div class="focus-mode__wrapper">
+    <div class="focus-mode__body">
+      <div data-focus-body>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="off-focus-mode" data-focus-off>
+  <% if opener_button %>
+    <button class="button small" data-focus-open>
+      <%= t(".focus_mode") %>
+    </button>
+  <% end %>
+</div>
