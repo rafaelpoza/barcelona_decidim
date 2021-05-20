@@ -21,9 +21,13 @@ describe "Orders", type: :system do
   context "when the user is not logged in" do
     let!(:projects) { create_list(:project, 1, budget: budget, budget_amount: 25_000_000) }
 
-    it "is given the option to sign in" do
+    before do
       visit_budget
+    end
 
+    it_behaves_like "has focus mode", "TOTAL BUDGET"
+
+    it "is given the option to sign in" do
       within "#project-#{project.id}-item" do
         page.find(".budget-list__action").click
       end
@@ -43,6 +47,8 @@ describe "Orders", type: :system do
       before do
         visit_budget
       end
+
+      it_behaves_like "has focus mode"
 
       context "when voting by percentage threshold" do
         it "displays description messages" do
