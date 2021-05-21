@@ -10,21 +10,6 @@
     </p>
   <% end %>
 
-  <div class="row column voting-rules">
-    <div class="callout warning">
-      <div class="row">
-        <div class="columns medium-8 large-9">
-          <h3 class="heading3">
-            <%= t(".rules.title") %>
-          </h3>
-          <ul>
-            <%= raw current_rule_explanation %>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="card budget-summary" data-progress-reference data-safe-url="<%= budget_url(budget) %>">
     <div class="card__content">
       <% if include_heading %>
@@ -48,6 +33,21 @@
           </h3>
         <% end %>
       <% end %>
+
+      <div class="row column voting-rules">
+        <div class="callout warning">
+          <div class="row">
+            <div class="columns medium-8 large-9">
+              <h3 class="heading3">
+                <%= t(".rules.title") %>
+              </h3>
+              <ul>
+                <%= raw current_rule_explanation %>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
 
       <%= cell("decidim/budgets/budget_information_modal", budget) %>
 
