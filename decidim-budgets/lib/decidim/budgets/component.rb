@@ -93,8 +93,8 @@ Decidim.register_component(:budgets) do |component|
     settings.attribute :resources_permissions_enabled, type: :boolean, default: true
     settings.attribute :announcement, type: :text, translated: true, editor: true
 
-    settings.attribute :landing_page_title, type: :string, translated: true
     settings.attribute :landing_page_content, type: :text, translated: true, editor: true
+    settings.attribute :landing_page_instructions, type: :text, translated: true, editor: true
     settings.attribute :more_information_modal, type: :text, translated: true
   end
 
@@ -104,8 +104,8 @@ Decidim.register_component(:budgets) do |component|
     settings.attribute :show_votes, type: :boolean, default: false
     settings.attribute :announcement, type: :text, translated: true, editor: true
 
-    settings.attribute :landing_page_title, type: :string, translated: true
     settings.attribute :landing_page_content, type: :text, translated: true, editor: true
+    settings.attribute :landing_page_instructions, type: :text, translated: true, editor: true
     settings.attribute :more_information_modal, type: :text, translated: true
     settings.attribute :announcement, type: :text, translated: true, editor: true
   end

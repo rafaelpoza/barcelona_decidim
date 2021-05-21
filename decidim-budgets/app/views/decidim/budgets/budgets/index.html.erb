@@ -3,21 +3,26 @@
 <div class="row">
   <div class="columns medium-7 mediumlarge-8">
     <%= cell("decidim/budgets/budgets_header", current_workflow) %>
+    <%= cell("decidim/budgets/budgets_list", current_workflow) %>
   </div>
 
   <% if current_component.participatory_space.try(:start_date) %>
-    <div class="columns section view-side medium-3">
+    <div class="columns section view-side medium-4">
       <div class="card extra">
         <div class="card__content">
-          <%= cell("decidim/date", { start: current_component.participatory_space.try(:start_date), end: current_component.participatory_space.try(:end_date) }) %>
+          <h3><%= t(".date") %></h3>
+          <%= cell("decidim/date", { start: current_component.participatory_space.try(:start_date), end: current_component.participatory_space.try(:end_date), extra_classes: "extra__date-container--horizontal" }) %>
+        </div>
+      </div>
+
+      <div class="card extra">
+        <div class="card__content">
+          <h3><%= t(".instructions") %></h3>
+          <div class="text-left">
+            <%== translated_attribute(current_component.current_settings.landing_page_instructions).presence || translated_attribute(current_component.settings.landing_page_instructions) %>
+          </div>
         </div>
       </div>
     </div>
   <% end %>
-</div>
-
-<div class="row">
-  <div class="columns medium-7 mediumlarge-8">
-    <%= cell("decidim/budgets/budgets_list", current_workflow) %>
-  </div>
 </div>
