@@ -27,6 +27,12 @@
   text-align: right;
   padding-left: 1rem;
   padding-right: .5rem;
+
+  @include breakpoint(smallmedium down) {
+    text-align: center;
+    padding: 0;
+    left: 0;
+  }
 }
 
 .progress-text-wrapper {
