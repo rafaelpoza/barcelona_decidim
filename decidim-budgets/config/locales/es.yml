@@ -155,6 +155,8 @@ es:
         budget_summary:
           are_you_sure: '¿Estás seguro de que deseas cancelar tu voto?'
           assigned: 'Asignado:'
+          back_to_budgets: Volver a %{component_name}
+          back_to_projects: Volver a %{budget_name}
           cancel_order: eliminar tu voto y empezar de nuevo
           checked_out:
             description: Ya has votado para el presupuesto. Si has cambiado de idea, puedes %{cancel_link}.

@@ -5,33 +5,35 @@
 ) do %>
 
   <% unless current_workflow.single? %>
+    <% project_detail = action_name == "show" %>
+    <% back_path = project_detail ? budget_path(budget) : Decidim::EngineRouter.main_proxy(current_component).root_path %>
+    <% back_title = project_detail ? t(".back_to_projects", budget_name: translated_attribute(budget.title)) : t(".back_to_budgets", component_name: translated_attribute(current_component.name)) %>
+
     <p>
-      <%= link_to t(:back_to, scope: "decidim.budgets.budget_information_modal", component_name: translated_attribute(current_component.name)), budgets_path %>
+      <%= link_to back_title, back_path %>
     </p>
   <% end %>
 
   <div class="card budget-summary" data-progress-reference data-safe-url="<%= budget_url(budget) %>">
     <div class="card__content">
-      <% if include_heading %>
-        <% if current_order_checked_out? %>
-          <h3 class="heading3">
-            <%= t(".checked_out.title") %>
-            <% unless current_workflow.single? %>
-              <small><%= translated_attribute(budget.title) %></small>
-            <% end %>
-          </h3>
-          <p>
-            <%= raw t(".checked_out.description", cancel_link: link_to(t(".cancel_order"), budget_order_path(return_to: "budget"), method: :delete, class: "cancel-order", data: { confirm: t(".are_you_sure") })) %>
-          </p>
-        <% else %>
-          <h3 class="heading3">
-            <% if current_workflow.single? %>
-              <%= t(".title") %>
-            <% else %>
-              <%= translated_attribute(budget.title) %>
-            <% end %>
-          </h3>
-        <% end %>
+      <% if current_order_checked_out? %>
+        <h3 class="heading3">
+          <%= t(".checked_out.title") %>
+          <% unless current_workflow.single? %>
+            <small><%= translated_attribute(budget.title) %></small>
+          <% end %>
+        </h3>
+        <p>
+          <%= raw t(".checked_out.description", cancel_link: link_to(t(".cancel_order"), budget_order_path(return_to: "budget"), method: :delete, class: "cancel-order", data: { confirm: t(".are_you_sure") })) %>
+        </p>
+      <% else %>
+        <h3 class="heading3">
+          <% if current_workflow.single? %>
+            <%= t(".title") %>
+          <% else %>
+            <%= translated_attribute(budget.title) %>
+          <% end %>
+        </h3>
       <% end %>
 
       <div class="row column voting-rules">

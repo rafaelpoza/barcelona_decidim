@@ -159,6 +159,8 @@ en:
         budget_summary:
           are_you_sure: Are you sure you want to cancel your vote?
           assigned: 'Assigned:'
+          back_to_budgets: Back to %{component_name}
+          back_to_projects: Back to %{budget_name}
           cancel_order: delete your vote and start over
           checked_out:
             description: You've already voted for the budget. If you've changed your mind, you can %{cancel_link}.

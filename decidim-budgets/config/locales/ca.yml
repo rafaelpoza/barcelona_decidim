@@ -155,6 +155,8 @@ ca:
         budget_summary:
           are_you_sure: Segur que vols cancel·lar el teu vot?
           assigned: 'Assignat:'
+          back_to_budgets: Tornar a %{component_name}
+          back_to_projects: Tornar a %{budget_name}
           cancel_order: eliminar el teu vot i començar de nou
           checked_out:
             description: Ja has votat pel pressupost. Si has canviat d'idea, pots %{cancel_link}.
