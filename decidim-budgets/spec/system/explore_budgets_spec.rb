@@ -9,8 +9,11 @@ describe "Explore Budgets", :slow, type: :system do
   let!(:component) do
     create(:budgets_component,
            :with_vote_threshold_percent,
+           :with_landing_page_content,
            manifest: manifest,
-           participatory_space: participatory_process)
+           participatory_space: participatory_process,
+           landing_page_content: { en: "<h1>Big title</h1>" },
+           landing_page_instructions: { en: "<p>Follow your instincts</p>" })
   end
 
   context "with only one budget" do
@@ -30,6 +33,20 @@ describe "Explore Budgets", :slow, type: :system do
 
     before do
       visit_component
+    end
+
+    it "shows the content" do
+      expect(page).to have_content("Big title")
+    end
+
+    it "shows the dates" do
+      expect(page).to have_content("Voting dates")
+      expect(page).to have_selector(".extra__date-container")
+    end
+
+    it "shows the instructions" do
+      expect(page).to have_content("How to participate")
+      expect(page).to have_content("Follow your instincts")
     end
 
     it "lists all the budgets" do
