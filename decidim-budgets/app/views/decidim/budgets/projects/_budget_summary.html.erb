@@ -10,7 +10,10 @@
     <% back_title = project_detail ? t(".back_to_projects", budget_name: translated_attribute(budget.title)) : t(".back_to_budgets", component_name: translated_attribute(current_component.name)) %>
 
     <p>
-      <%= link_to back_title, back_path %>
+      <%= link_to back_path, class: "muted-link" do %>
+        <%= icon "chevron-left", class: "icon--small", role: "img", "aria-hidden": true %>
+        <%= back_title %>
+      <% end %>
     </p>
   <% end %>
 
