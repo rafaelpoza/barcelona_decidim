@@ -252,6 +252,7 @@ es:
                 budget_voting_rule_only_one: Hay que activar por lo menos una norma para la votación
                 budget_voting_rule_required: Se requiere una norma para la votación
             landing_page_content: Página de inicio de presupuestos
+            landing_page_instructions: Instrucciones para la página de inicio de presupuestos
             more_information_modal: Modal de "Más información"
             projects_per_page: Proyectos por página
             resources_permissions_enabled: Se pueden establecer permisos de acciones para cada proyecto
@@ -275,6 +276,7 @@ es:
             comments_blocked: Comentarios bloqueados
             highlighted_heading: Encabezado destacado
             landing_page_content: Página de inicio de presupuestos
+            landing_page_instructions: Instrucciones para la página de inicio de presupuestos
             list_heading: Título de lista
             more_information_modal: Modal de "Más información"
             show_votes: Mostrar los votos
