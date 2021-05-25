@@ -21,9 +21,13 @@ describe "Orders", type: :system do
   context "when the user is not logged in" do
     let!(:projects) { create_list(:project, 1, budget: budget, budget_amount: 25_000_000) }
 
-    it "is given the option to sign in" do
+    before do
       visit_budget
+    end
 
+    it_behaves_like "has focus mode", "TOTAL BUDGET"
+
+    it "is given the option to sign in" do
       within "#project-#{project.id}-item" do
         page.find(".budget-list__action").click
       end
@@ -43,6 +47,8 @@ describe "Orders", type: :system do
       before do
         visit_budget
       end
+
+      it_behaves_like "has focus mode"
 
       context "when voting by percentage threshold" do
         it "displays description messages" do
@@ -75,6 +81,20 @@ describe "Orders", type: :system do
         it "displays rules" do
           within ".voting-rules" do
             expect(page).to have_content("Select at least 3 projects you want and vote according to your preferences to define the budget.")
+          end
+        end
+
+        it "shows the project count in the progress bar" do
+          within ".progress-meter-text" do
+            expect(page).to have_content("0 projects selected")
+          end
+
+          within "#project-#{project.id}-item" do
+            page.find(".budget-list__action").click
+          end
+
+          within ".progress-meter-text" do
+            expect(page).to have_content("1 project selected")
           end
         end
       end
@@ -322,6 +342,7 @@ describe "Orders", type: :system do
         # prompt for verifying the page unload. Therefore, `dismiss_prompt` is
         # used instead of `dismiss_confirm`.
         dismiss_prompt do
+          page.find(".focus-mode__close").click
           page.find(".logo-wrapper a").click
         end
 
@@ -491,6 +512,7 @@ describe "Orders", type: :system do
 
         expect(page).to have_content("Budget vote completed")
 
+        page.find(".focus-mode__close").click
         page.find(".logo-wrapper a").click
 
         expect(page).to have_current_path decidim.root_path
