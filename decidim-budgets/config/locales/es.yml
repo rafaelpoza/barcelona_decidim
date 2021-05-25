@@ -103,6 +103,10 @@ es:
           update: "%{user_name} actualizó el proyecto %{resource_name} en el espacio %{space_name}"
       budget:
         view: Ver todos los proyectos de presupuesto
+      budgets:
+        index:
+          date: Fechas de votación
+          instructions: Cómo participar
       budget_information_modal:
         back_to: Volver a %{component_name}
         close_modal: Cierra el modal
@@ -116,6 +120,9 @@ es:
         highlighted_cta: Votar en %{name}
         if_change_opinion: Si has cambiado de opinión, puedes
         my_budgets: Mis presupuestos
+        progress: Finaliza la votación
+        show: Ver más
+        vote: Vota
         voted_on: Has votado en %{links}
       limit_announcement:
         cant_vote: No puedes votar en este presupuesto. <a href="%{landing_path}"> Prueba con otro presupuesto</a>.
@@ -178,6 +185,7 @@ es:
           vote_threshold_percent_rule:
             description: '¿A qué proyectos crees que deberíamos asignar el presupuesto? Asigna <strong>por lo menos %{minimum_budget}</strong> a los proyectos que desees y vota para definir el presupuesto.'
             instruction: "<li>Selecciona <strong>al menos %{minimum_budget}</strong> proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.</li>"
+          vote: Vota
         count:
           projects_count:
             one: 1 proyecto

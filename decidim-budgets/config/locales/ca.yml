@@ -103,6 +103,10 @@ ca:
           update: "%{user_name} ha actualitzat el projecte %{resource_name} de l'espai %{space_name}"
       budget:
         view: Veure tots els projectes de pressupost
+      budgets:
+        index:
+          date: Dates de votació
+          instructions: Com participar
       budget_information_modal:
         back_to: Tornar a %{component_name}
         close_modal: Tancar el modal
@@ -116,6 +120,9 @@ ca:
         highlighted_cta: Votar a %{name}
         if_change_opinion: Si has canviat d'opinió, pots
         my_budgets: Els meus pressupostos
+        progress: Finalitza la votació
+        show: Veure més
+        vote: Vota
         voted_on: Has votat a %{links}
       limit_announcement:
         cant_vote: No pots votar a aquests pressupostos. <a href="%{landing_path}"> Prova amb un altre pressupost </a>.
@@ -178,6 +185,7 @@ ca:
           vote_threshold_percent_rule:
             description: A quins projectes creus que hem de destinar el pressupost? Assigna <strong>com a mínim %{minimum_budget}</strong> als projectes que vulguis i vota segons les teves preferències per a definir el pressupost.
             instruction: "<li>Assigna <strong>com a mínim %{minimum_budget}</strong> als projectes que vulguis i vota segons les teves preferències per a definir el pressupost.</li>"
+          vote: Vota
         count:
           projects_count:
             one: 1 projecte
