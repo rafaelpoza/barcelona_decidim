@@ -14,6 +14,26 @@ $(() => {
 
   const FADEOUT_TIME = 200;
 
+  const flashMessagesObserver = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      if (mutation.addedNodes !== null) {
+        var $nodes = $(mutation.addedNodes);
+        if ($nodes.filter(".flash.callout").length > 0) {
+          moveFlashMessages();
+        }
+      }
+    });
+  });
+
+  const watchFlashMessages = () => {
+    // Pass in the target node, as well as the observer options
+    flashMessagesObserver.observe($("#content")[0], { attributes: true, childList: true, characterData: true });
+  };
+
+  const unwatchFlashMessages = () => {
+    flashMessagesObserver.disconnect();
+  };
+
   const moveFlashMessages = () => {
     $(".flash.callout").appendTo($flashMessagesContainer);
   };
@@ -61,6 +81,8 @@ $(() => {
         $content.fadeIn(fadeTime, () => {});
       });
     });
+
+    watchFlashMessages();
   }
 
   const focusModeOff = function(fadeTime) {
@@ -74,6 +96,8 @@ $(() => {
         if ($opener.length) $opener.fadeIn(fadeTime);
       });
     });
+
+    unwatchFlashMessages();
   }
 
   const initializeFocusMode = () => {
