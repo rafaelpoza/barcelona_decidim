@@ -8,6 +8,8 @@ $(() => {
   const $flashMessagesContainer = $(".focus-mode__flash-messages");
 
   const $background = $(".title-bar, [data-set='nav-holder'], .process-header");
+  const $titleBar = $(".title-bar");
+  const $navbar = $("[data-set='nav-holder']");
 
   const $overlay = $(".omnipresent-banner, .cookie-warning");
   const $cookieButton = $(".cookie-bar__button");
@@ -72,6 +74,15 @@ $(() => {
     if ($opener.length) $opener.fadeOut(fadeTime);
 
     $background.animate({ opacity: 0 }, fadeTime);
+
+    // Hide some background elements to prevent too much blank space above content
+    if ($content.outerHeight() < 250) {
+      $titleBar.hide();
+    }
+    if ($content.outerHeight() < 350) {
+      $navbar.hide();
+    }
+
     moveOverlay();
     moveFlashMessages();
 
@@ -87,6 +98,7 @@ $(() => {
 
   const focusModeOff = function(fadeTime) {
     $content.fadeOut(fadeTime);
+    $titleBar.show();
     $background.animate({ opacity: 1 }, fadeTime);
 
     $focusModeOn.fadeOut(fadeTime, () => {
