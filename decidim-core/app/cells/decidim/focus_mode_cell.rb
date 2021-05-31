@@ -20,7 +20,7 @@ module Decidim
     def user
       return unless current_user
 
-      link_to current_user.name, decidim.profile_path(current_user.nickname)
+      link_to current_user.name, decidim.account_path
     end
 
     def opener_button
