@@ -2,14 +2,13 @@ $(() => {
   const $focusModeOn = $("[data-focus-on]");
   const $focusModeOff = $("[data-focus-off]");
   const $wrapper = $(".focus-mode__body");
-  const $content = $("[data-focus-body]");
+  const $focusContent = $("[data-focus-body]");
+  const $pageContent = $("#content");
   const $closer = $("[data-focus-close]");
   const $opener = $("[data-focus-open]");
   const $flashMessagesContainer = $(".focus-mode__flash-messages");
 
   const $background = $(".title-bar, [data-set='nav-holder'], .process-header");
-  const $titleBar = $(".title-bar");
-  const $navbar = $("[data-set='nav-holder']");
 
   const $overlay = $(".omnipresent-banner, .cookie-warning");
   const $cookieButton = $(".cookie-bar__button");
@@ -73,23 +72,16 @@ $(() => {
   const focusModeOn = function(fadeTime) {
     if ($opener.length) $opener.fadeOut(fadeTime);
 
-    $background.animate({ opacity: 0 }, fadeTime);
-
-    // Hide some background elements to prevent too much blank space above content
-    if ($content.outerHeight() < 250) {
-      $titleBar.hide();
-    }
-    if ($content.outerHeight() < 350) {
-      $navbar.hide();
-    }
+    $background.hide(fadeTime);
+    $pageContent.animate({ "margin-top": `${$focusContent.outerHeight() + overlayHeight() - 50}px` }, fadeTime);
 
     moveOverlay();
     moveFlashMessages();
 
-    $content.fadeOut(fadeTime, () => {
-      $content.detach().prependTo($wrapper);
+    $focusContent.fadeOut(fadeTime, () => {
+      $focusContent.detach().prependTo($wrapper);
       $focusModeOn.fadeIn(fadeTime, () => {
-        $content.fadeIn(fadeTime, () => {});
+        $focusContent.fadeIn(fadeTime, () => {});
       });
     });
 
@@ -97,14 +89,14 @@ $(() => {
   }
 
   const focusModeOff = function(fadeTime) {
-    $content.fadeOut(fadeTime);
-    $titleBar.show();
-    $background.animate({ opacity: 1 }, fadeTime);
+    $focusContent.fadeOut(fadeTime);
+    $background.show(fadeTime);
+    $pageContent.animate({ "margin-top": "0px" }, fadeTime);
 
     $focusModeOn.fadeOut(fadeTime, () => {
-      $content.detach().prependTo($focusModeOff);
+      $focusContent.detach().prependTo($focusModeOff);
       $focusModeOff.fadeIn(fadeTime, () => {
-        $content.fadeIn(fadeTime, () => {});
+        $focusContent.fadeIn(fadeTime, () => {});
         if ($opener.length) $opener.fadeIn(fadeTime);
       });
     });
