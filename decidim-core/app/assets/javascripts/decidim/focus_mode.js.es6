@@ -73,7 +73,7 @@ $(() => {
     if ($opener.length) $opener.fadeOut(fadeTime);
 
     $background.hide(fadeTime);
-    $pageContent.animate({ "margin-top": `${$focusContent.outerHeight() + overlayHeight() - 50}px` }, fadeTime);
+    $pageContent.animate({ "margin-top": `${$focusModeOn.outerHeight() + overlayHeight() - 50}px` }, fadeTime);
 
     moveOverlay();
     moveFlashMessages();
