@@ -171,13 +171,14 @@ en:
             title: Budget vote completed
           minimum_projects_rule:
             description: What projects do you think we should allocate budget for? Select <strong>at least %{minimum_number} projects</strong> you want and vote according to your preferences to define the budget.
-            instruction: "<li>Select <strong>at least %{minimum_number} projects</strong> you want and vote according to your preferences to define the budget.</li>"
+            instruction: "Select <strong>at least %{minimum_number} projects</strong> you want and vote according to your preferences to define the budget."
           projects_rule:
             description: What projects do you think we should allocate budget for? Select <strong>at least %{minimum_number} and up to %{maximum_number} projects</strong> you want and vote according to your preferences to define the budget.
-            instruction: "<li>Select <strong>at least %{minimum_number} and up to %{maximum_number} projects</strong> you want and vote according to your preferences to define the budget.</li>"
+            instruction: "Select <strong>at least %{minimum_number} and up to %{maximum_number} projects</strong> you want and vote according to your preferences to define the budget."
           projects_rule_maximum_only:
             description: What projects do you think we should allocate budget for? Select <strong>up to %{maximum_number} projects</strong> you want and vote according to your preferences to define the budget.
-            instruction: "<li>Select <strong>up to %{maximum_number} projects</strong> you want and vote according to your preferences to define the budget.</li>"
+            instruction: "Select <strong>up to %{maximum_number} projects</strong> you want and vote according to your preferences to define the budget."
+          remaining: 'Remaining:'
           rules:
             title: Budget rules
           title: You decide the budget
@@ -185,7 +186,7 @@ en:
           total_projects: Total votes
           vote_threshold_percent_rule:
             description: What projects do you think we should allocate budget for? Assign <strong>at least %{minimum_budget}</strong> to the projects you want and vote according to your preferences to define the budget.
-            instruction: "<li>Assign <strong>at least %{minimum_budget}</strong> to the projects you want and vote according to your preferences to define the budget.</li>"
+            instruction: "Assign <strong>at least %{minimum_budget}</strong> to the projects you want and vote according to your preferences to define the budget."
         count:
           projects_count:
             one: 1 project

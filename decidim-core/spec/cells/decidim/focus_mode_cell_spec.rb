@@ -43,9 +43,9 @@ describe Decidim::FocusModeCell, type: :cell do
   end
 
   context "when the user is logged in" do
-    it "renders the user name with a link to their profile" do
+    it "renders the user name with a link to the account page" do
       expect(subject).to have_css(".focus-mode__user")
-      expect(subject).to have_link(user.name, href: "/profiles/#{user.nickname}")
+      expect(subject).to have_link(user.name, href: "/account")
     end
   end
 

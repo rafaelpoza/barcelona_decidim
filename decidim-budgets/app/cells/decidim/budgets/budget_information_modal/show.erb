@@ -1,8 +1,10 @@
-<button data-toggle="budget-modal-info">
-  <%= t("more_information", scope: i18n_scope) %>
-  <%= icon("caret-bottom", class:"icon--small", aria_label: t("more_information", scope: i18n_scope), role: "img") %>
-</button>
+<% if more_information %>
+  <button data-toggle="budget-modal-info">
+    <%= t("more_information", scope: i18n_scope) %>
+    <%= icon("caret-bottom", class:"icon--small", aria_label: t("more_information", scope: i18n_scope), role: "img") %>
+  </button>
 
-<div class="hide" data-toggler=".hide" id="budget-modal-info">
-  <%= content_tag(:p, more_information) if more_information %>
-</div>
+  <div class="hide" data-toggler=".hide" id="budget-modal-info">
+    <%= content_tag(:p, more_information) %>
+  </div>
+<% end %>

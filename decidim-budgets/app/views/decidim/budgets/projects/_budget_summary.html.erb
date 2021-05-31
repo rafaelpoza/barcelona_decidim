@@ -43,12 +43,7 @@
         <div class="callout warning">
           <div class="row">
             <div class="columns medium-8 large-9">
-              <h3 class="heading3">
-                <%= t(".rules.title") %>
-              </h3>
-              <ul>
-                <%= raw current_rule_explanation %>
-              </ul>
+              <%= raw current_rule_explanation %>
             </div>
           </div>
         </div>
@@ -71,17 +66,20 @@
               <%= budget_to_currency(budget.total_budget) %>
             </strong>
           </span>
+
+          <span class="mini-title mr-s">
+            <%= t(".assigned") %>
+            <%= render partial: "order_total_budget" %>
+          </span>
+
+          <span class="mini-title">
+            <%= t(".remaining") %>
+            <%= render partial: "order_remaining_budget" %>
+          </span>
         </div>
       <% end %>
 
       <%= render partial: "order_progress" %>
-
-      <div>
-        <span class="mini-title">
-          <%= t(".assigned") %>
-          <%= render partial: "order_total_budget" %>
-        </span>
-      </div>
     </div>
 
     <%= render partial: "order_selected_projects" %>
