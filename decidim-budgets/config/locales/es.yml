@@ -170,13 +170,13 @@ es:
             title: Voto para los presupuestos completado
           minimum_projects_rule:
             description: '¿A qué proyectos crees que deberíamos destinar el presupuesto? Selecciona <strong>por lo menos %{minimum_number} proyectos</strong> y vota según tus preferencias para definir el presupuesto.'
-            instruction: "<li>Selecciona <strong>al menos %{minimum_number} proyectos</strong> que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.</li>"
+            instruction: "Selecciona <strong>al menos %{minimum_number} proyectos</strong> que quieras y vota de acuerdo a tus preferencias para definir el presupuesto."
           projects_rule:
             description: '¿A qué proyectos crees que deberíamos destinar el presupuesto? Selecciona <strong>entre %{minimum_number} y %{maximum_number} proyectos</strong>, y vota según tus preferencias para definir el presupuesto.'
-            instruction: "<li>Selecciona <strong>al menos %{minimum_number} y hasta %{maximum_number} proyectos</strong> que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.</li>"
+            instruction: "Selecciona <strong>al menos %{minimum_number} y hasta %{maximum_number} proyectos</strong> que quieras y vota de acuerdo a tus preferencias para definir el presupuesto."
           projects_rule_maximum_only:
             description: '¿A qué proyectos crees que deberíamos destinar el presupuesto? Selecciona <strong>hasta %{maximum_number} proyectos</strong> y vota según tus preferencias para definir el presupuesto.'
-            instruction: "<li>Selecciona <strong>hasta %{maximum_number} proyectos</strong> que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.</li>"
+            instruction: "Selecciona <strong>hasta %{maximum_number} proyectos</strong> que quieras y vota de acuerdo a tus preferencias para definir el presupuesto."
           rules:
             title: Reglas de presupuesto
           title: Tú decides el presupuesto
@@ -184,7 +184,7 @@ es:
           total_projects: Total de votos
           vote_threshold_percent_rule:
             description: '¿A qué proyectos crees que deberíamos asignar el presupuesto? Asigna <strong>por lo menos %{minimum_budget}</strong> a los proyectos que desees y vota para definir el presupuesto.'
-            instruction: "<li>Selecciona <strong>al menos %{minimum_budget}</strong> proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto.</li>"
+            instruction: "Selecciona <strong>al menos %{minimum_budget}</strong> proyectos que quieras y vota de acuerdo a tus preferencias para definir el presupuesto."
           vote: Vota
         count:
           projects_count:
