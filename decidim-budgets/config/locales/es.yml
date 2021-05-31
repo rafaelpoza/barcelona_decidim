@@ -177,6 +177,7 @@ es:
           projects_rule_maximum_only:
             description: '¿A qué proyectos crees que deberíamos destinar el presupuesto? Selecciona <strong>hasta %{maximum_number} proyectos</strong> y vota según tus preferencias para definir el presupuesto.'
             instruction: "Selecciona <strong>hasta %{maximum_number} proyectos</strong> que quieras y vota de acuerdo a tus preferencias para definir el presupuesto."
+          remaining: 'Restante:'
           rules:
             title: Reglas de presupuesto
           title: Tú decides el presupuesto

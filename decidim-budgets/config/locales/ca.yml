@@ -177,6 +177,7 @@ ca:
           projects_rule_maximum_only:
             description: A quins projectes creus que hem de destinar el pressupost? Selecciona <strong>fins a %{maximum_number} projectes</strong> i vota segons les teves preferències per a definir el pressupost.
             instruction: "Selecciona <strong>fins a %{maximum_number} projectes</strong> i vota segons les teves preferències per a definir el pressupost."
+          remaining: 'Restant:'
           rules:
             title: Regles de votació
           title: Tu decideixes el pressupost
