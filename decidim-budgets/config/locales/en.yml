@@ -121,6 +121,10 @@ en:
         close_modal: Close modal
         continue: Continue
         more_information: More information
+      budgets:
+        index:
+          date: Voting dates
+          instructions: How to participate
       budget_list_item:
         voting_finished: You have voted in this budget
         voting_started: You have started to vote in this budget
@@ -176,6 +180,8 @@ en:
         budget_summary:
           are_you_sure: Are you sure you want to cancel your vote?
           assigned: 'Assigned:'
+          back_to_budgets: Back to %{component_name}
+          back_to_projects: Back to %{budget_name}
           cancel_order: delete your vote and start over
           checked_out:
             description: You've already voted for the budget. If you've changed your mind, you can %{cancel_link}.
@@ -270,6 +276,7 @@ en:
                 budget_voting_rule_only_one: Only one voting rule must be enabled
                 budget_voting_rule_required: One voting rule is required
             landing_page_content: Budgets landing page
+            landing_page_instructions: Budgets landing page instructions
             more_information_modal: More information modal
             projects_per_page: Projects per page
             resources_permissions_enabled: Actions permissions can be set for each project
@@ -293,6 +300,7 @@ en:
             comments_blocked: Comments blocked
             highlighted_heading: Highlighted heading
             landing_page_content: Budgets landing page
+            landing_page_instructions: Budgets landing page instructions
             list_heading: List heading
             more_information_modal: More information modal
             show_votes: Show votes

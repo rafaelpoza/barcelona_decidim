@@ -21,9 +21,13 @@ describe "Orders", type: :system do
   context "when the user is not logged in" do
     let!(:projects) { create_list(:project, 1, budget: budget, budget_amount: 25_000_000) }
 
-    it "is given the option to sign in" do
+    before do
       visit_budget
+    end
 
+    it_behaves_like "has focus mode", "TOTAL BUDGET"
+
+    it "is given the option to sign in" do
       within "#project-#{project.id}-item" do
         page.find(".budget-list__action").click
       end
@@ -43,6 +47,8 @@ describe "Orders", type: :system do
       before do
         visit_budget
       end
+
+      it_behaves_like "has focus mode", "You decide the budget"
 
       context "when voting by percentage threshold" do
         it "displays description messages" do
@@ -137,6 +143,7 @@ describe "Orders", type: :system do
           expect(page).to have_selector ".budget-list__data--added", count: 1
 
           expect(page).to have_content "ASSIGNED: €25,000,000"
+          expect(page).to have_content "REMAINING: €75,000,000"
           expect(page).to have_content "1 project selected"
 
           within ".budget-summary__selected" do
@@ -172,6 +179,7 @@ describe "Orders", type: :system do
           expect(page).to have_selector ".budget-list__data--added", count: 1
 
           expect(page).to have_content "ASSIGNED: €25,000,000"
+          expect(page).to have_content "REMAINING: €75,000,000"
           expect(page).to have_content "1 project selected"
 
           within ".budget-summary__selected" do
@@ -295,6 +303,7 @@ describe "Orders", type: :system do
         visit_budget
 
         expect(page).to have_content "ASSIGNED: €25,000,000"
+        expect(page).to have_content "REMAINING: €75,000,000"
 
         within "#project-#{project.id}-item" do
           page.find(".budget-list__action").click
@@ -317,27 +326,17 @@ describe "Orders", type: :system do
         visit_budget
 
         expect(page).to have_content "ASSIGNED: €25,000,000"
+        expect(page).to have_content "REMAINING: €75,000,000"
 
-        page.find(".logo-wrapper a").click
+        # Note that this is not a default alert box, this is the default browser
+        # prompt for verifying the page unload. Therefore, `dismiss_prompt` is
+        # used instead of `dismiss_confirm`.
+        dismiss_prompt do
+          page.find(".focus-mode__close").click
+          page.find(".logo-wrapper a").click
+        end
 
-        expect(page).to have_content "You have not yet voted"
-
-        click_button "Return to voting"
-
-        expect(page).not_to have_content("You have not yet voted")
         expect(page).to have_current_path budget_projects_path
-      end
-
-      it "is alerted but can sign out before completing" do
-        visit_budget
-
-        page.find("#user-menu-control").click
-        page.find(".sign-out-link").click
-
-        expect(page).to have_content "You have not yet voted"
-
-        page.find("#exit-notification-link").click
-        expect(page).to have_content("Signed out successfully")
       end
 
       context "and try to vote a project that exceed the total budget" do
@@ -517,6 +516,7 @@ describe "Orders", type: :system do
 
         expect(page).to have_content("Budget vote completed")
 
+        page.find(".focus-mode__close").click
         page.find(".logo-wrapper a").click
 
         expect(page).to have_current_path decidim.root_path
