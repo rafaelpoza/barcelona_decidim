@@ -100,7 +100,7 @@ fi-pl:
           type_eq:
             label: Tapaamisen tyyppi
             values:
-              hybrid: Molemmat
+              hybrid: Hybridi
               in_person: Fyysinen
               online: Verkossa
       meeting_copies:
@@ -184,7 +184,7 @@ fi-pl:
           notification_title: Tapahtuma <a href="%{resource_path}">%{resource_title}</a> alkaa alle 48 tuntin kuluttua.
     forms:
       meetings:
-        attendees_count_help_text: Älä unohda ilmoittaa tapahtuman osallistujamäärää. Tapahtuman tyypistä riippumatta, meille on tärkeä tietää, kuinka moni osallistui tapahtumaan.
+        attendees_count_help_text: Älä unohda merkitä tapaamisesi osallistujien kokonaismäärää, olipa kyse fyysisestä, verkko- tai hybriditapaamisesta.
     gamification:
       badges:
         attended_meetings:
@@ -476,7 +476,7 @@ fi-pl:
           type: Tyyppi
           type_values:
             all: Kaikki
-            hybrid: Molemmat
+            hybrid: Hybridi
             in_person: Fyysinen
             online: Verkossa
         filters_small_view:
@@ -567,7 +567,7 @@ fi-pl:
           fields:
             closed: Suljettu
             end_time: Päättymispäivä
-            id: Id
+            id: ID
             map: Kartta
             official_meeting: Virallinen tapahtuma
             start_time: Alkamispäivä
@@ -618,7 +618,7 @@ fi-pl:
           invalid: Tapahtumasta poistumisessa on tapahtunut virhe.
           success: Olet poistunut tapahtumasta onnistuneesti.
       type_of_meeting:
-        hybrid: Molemmat
+        hybrid: Hybridi
         in_person: Fyysinen
         online: Verkossa
       types:
