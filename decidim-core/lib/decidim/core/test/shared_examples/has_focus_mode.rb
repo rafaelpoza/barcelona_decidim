@@ -22,7 +22,7 @@ shared_examples_for "has focus mode" do |content|
     within "#focus-mode" do
       expect(page).not_to have_content(content)
     end
-    
+
     within "#off-focus-mode" do
       expect(page).to have_content(content)
     end
