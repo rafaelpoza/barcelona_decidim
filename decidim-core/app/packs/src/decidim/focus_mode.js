@@ -15,10 +15,14 @@ $(() => {
 
   const FADEOUT_TIME = 200;
 
+  const moveFlashMessages = () => {
+    $(".flash.callout").appendTo($flashMessagesContainer);
+  };
+
   const flashMessagesObserver = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       if (mutation.addedNodes !== null) {
-        var $nodes = $(mutation.addedNodes);
+        let $nodes = $(mutation.addedNodes);
         if ($nodes.filter(".flash.callout").length > 0) {
           moveFlashMessages();
         }
@@ -35,16 +39,14 @@ $(() => {
     flashMessagesObserver.disconnect();
   };
 
-  const moveFlashMessages = () => {
-    $(".flash.callout").appendTo($flashMessagesContainer);
-  };
-
   const overlayHeight = () => {
-    var h = 0;
-    $overlay.outerHeight((i, v) => {
-      if ($($overlay[i]).is(":visible")) h += v;
+    let height = 0;
+    $overlay.outerHeight((index, value) => {
+      if ($($overlay[index]).is(":visible")) {
+        height += value;
+      }
     });
-    return h;
+    return height;
   };
 
   const moveToShowOverlay = () => {
@@ -59,7 +61,9 @@ $(() => {
   }
 
   const moveOverlay = () => {
-    if (!$overlay.length) return;
+    if (!$overlay.length) {
+      return;
+    }
 
     if ($cookieButton.length) {
       $cookieButton.on("click", moveToShowOverlay);
@@ -70,7 +74,9 @@ $(() => {
   }
 
   const focusModeOn = function(fadeTime) {
-    if ($opener.length) $opener.fadeOut(fadeTime);
+    if ($opener.length) {
+      $opener.fadeOut(fadeTime);
+    }
 
     $background.hide(fadeTime);
     $pageContent.animate({ "margin-top": `${$focusModeOn.outerHeight() + overlayHeight() - 50}px` }, fadeTime);
@@ -96,8 +102,10 @@ $(() => {
     $focusModeOn.fadeOut(fadeTime, () => {
       $focusContent.detach().prependTo($focusModeOff);
       $focusModeOff.fadeIn(fadeTime, () => {
-        $focusContent.fadeIn(fadeTime, () => {});
-        if ($opener.length) $opener.fadeIn(fadeTime);
+        $focusContent.fadeIn(fadeTime);
+        if ($opener.length) {
+          $opener.fadeIn(fadeTime);
+        }
       });
     });
 
@@ -105,13 +113,19 @@ $(() => {
   }
 
   const initializeFocusMode = () => {
-    const focusModePresent = !!$focusModeOn.length;
+    const focusModePresent = Boolean($focusModeOn.length);
 
-    $closer.on("click", () => { focusModeOff(FADEOUT_TIME) });
+    $closer.on("click", () => {
+      focusModeOff(FADEOUT_TIME)
+    });
 
-    if ($opener.length) $opener.on("click", () => { focusModeOn(FADEOUT_TIME) });
+    if ($opener.length) {
+      $opener.on("click", () => {
+        focusModeOn(FADEOUT_TIME)
+      });
+    }
 
-    if (focusModePresent > 0 && window.matchMedia('(min-width: 800px)').matches) {
+    if (focusModePresent > 0 && window.matchMedia("(min-width: 800px)").matches) {
       focusModeOn(0);
     } else {
       focusModeOff(0);
