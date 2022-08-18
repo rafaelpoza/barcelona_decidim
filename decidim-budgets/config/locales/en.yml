@@ -201,6 +201,7 @@ en:
           projects_rule_maximum_only:
             description: What projects do you think we should allocate budget for? Select up to %{maximum_number} projects you want and vote according to your preferences to define the budget.
             instruction: "<li>Select up to %{maximum_number} projects you want and vote according to your preferences to define the budget.</li>"
+          remaining: 'Remaining:'
           rules:
             title: Budget rules
           title: You decide the budget
