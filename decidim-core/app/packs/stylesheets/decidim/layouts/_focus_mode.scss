@@ -1,23 +1,23 @@
-.focus-mode {
+.focus-mode{
   position: fixed;
   z-index: 1000;
   width: 100%;
   top: 0;
   left: 0;
   background: $medium-gray;
-  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, .3);
 
-  &__title {
+  &__title{
     text-align: center;
   }
 
-  &__bar {
-    padding: 0.5em;
+  &__bar{
+    padding: .5em;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     align-items: center;
 
-    &--right {
+    &--right{
       display: flex;
       justify-content: right;
       align-items: center;
@@ -26,19 +26,19 @@
     }
   }
 
-  &__close {
+  &__close{
     position: relative;
     margin: 0;
     right: 0;
     top: 0;
-    line-height: 0.5em;
+    line-height: .5em;
   }
 
-  &__wrapper {
+  &__wrapper{
     background: white;
   }
 
-  &__body {
+  &__body{
     max-width: 75rem;
     padding: 1em;
     font-size: 80%;
@@ -46,17 +46,17 @@
 
     // Reduce sizes of content as much as possible
     .card,
-    .card__content {
+    .card__content{
       margin: 0;
       padding: 0;
       border: none;
     }
 
-    ul {
+    ul{
       margin-bottom: 0;
     }
 
-    .budget-summary__selected-list {
+    .budget-summary__selected-list{
       margin-top: 0;
     }
   }

@@ -123,6 +123,10 @@ ca:
         file: Fitxer
     errors:
       models:
+        newsletter:
+          attributes:
+            base:
+              at_least_one_space: Selecciona com a mínim un espai de participació
         organization:
           attributes:
             official_img_footer:
@@ -501,7 +505,7 @@ ca:
           download_example_format: Exemple de %{name}
           file_legend: Afegir un arxiu d'importació que serà processat.
           import: Importar
-        notice: "%{number} %{resource_name} importat correctament"
+        notice: "%{count} %{resource_name} importat correctament"
       logs:
         logs_list:
           no_logs_yet: Encara no hi ha cap registre d'activitat
@@ -1038,7 +1042,7 @@ ca:
             hidden_at: Data d'ocultació
             participatory_space: Espai de participació
             report_count: Recompte
-            reportable_id: Id
+            reportable_id: ID
             reportable_type: Tipus
             reported_content_url: URL contingut del contingut reportat
             reports: Denúncies

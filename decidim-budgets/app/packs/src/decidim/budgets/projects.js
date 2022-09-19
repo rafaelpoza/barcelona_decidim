@@ -24,7 +24,7 @@ $(() => {
     return false;
   }
 
-  $voteButton.on("click", "span", (event) => {
+  $voteButton.on("click", "span", () => {
     $(".budget-list__action").click();
   });
 
@@ -33,7 +33,7 @@ $(() => {
     const $currentTarget = $(event.currentTarget);
     const projectAllocation = parseInt($currentTarget.attr("data-allocation"), 10);
 
-    if(!$currentTarget.attr("data-open")) {
+    if (!$currentTarget.attr("data-open")) {
       $currentTarget.addClass("loading-spinner");
     }
 

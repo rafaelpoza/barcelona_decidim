@@ -53,7 +53,7 @@ describe "Orders", type: :system do
       context "when voting by percentage threshold" do
         it "displays description messages" do
           within ".budget-summary" do
-            expect(page).to have_content("You decide the budget\nWhat projects do you think we should allocate budget for? Assign at least €70,000,000 to the projects you want and vote according to your preferences to define the budget.")
+            expect(page).to have_content("You decide the budget\nBudget rules\nAssign at least €70,000,000 to the projects you want and vote according to your preferences to define the budget.")
           end
         end
 
@@ -74,7 +74,7 @@ describe "Orders", type: :system do
 
         it "displays description messages" do
           within ".budget-summary" do
-            expect(page).to have_content("What projects do you think we should allocate budget for? Select at least 3 projects you want and vote according to your preferences to define the budget.")
+            expect(page).to have_content("You decide the budget\nBudget rules\nSelect at least 3 projects you want and vote according to your preferences to define the budget.")
           end
         end
 
@@ -96,7 +96,7 @@ describe "Orders", type: :system do
 
         it "displays description messages" do
           within ".budget-summary" do
-            expect(page).to have_content("What projects do you think we should allocate budget for? Select up to 6 projects you want and vote according to your preferences to define the budget.")
+            expect(page).to have_content("You decide the budget\nBudget rules\nSelect up to 6 projects you want and vote according to your preferences to define the budget.")
           end
         end
 
@@ -117,7 +117,7 @@ describe "Orders", type: :system do
 
         it "displays description messages" do
           within ".budget-summary" do
-            expect(page).to have_content("What projects do you think we should allocate budget for? Select at least 3 and up to 6 projects you want and vote according to your preferences to define the budget.")
+            expect(page).to have_content("You decide the budget\nBudget rules\nSelect at least 3 and up to 6 projects you want and vote according to your preferences to define the budget.")
           end
         end
 
@@ -187,7 +187,7 @@ describe "Orders", type: :system do
           end
 
           within "#order-progress .budget-summary__progressbox" do
-            expect(page).to have_content "25%"
+            expect(page.find(".budget-progress__meter")[:style]).to match(/width: 25%/)
             expect(page).to have_selector("button.small:disabled")
           end
         end
@@ -328,13 +328,14 @@ describe "Orders", type: :system do
         expect(page).to have_content "ASSIGNED: €25,000,000"
         expect(page).to have_content "REMAINING: €75,000,000"
 
-        # Note that this is not a default alert box, this is the default browser
-        # prompt for verifying the page unload. Therefore, `dismiss_prompt` is
-        # used instead of `dismiss_confirm`.
-        dismiss_prompt do
-          page.find(".focus-mode__close").click
-          page.find(".logo-wrapper a").click
-        end
+        page.find(".focus-mode__close").click
+        page.find(".logo-wrapper a").click
+
+        expect(page).to have_content "You have not yet voted"
+
+        click_button "Return to voting"
+
+        expect(page).not_to have_content("You have not yet voted")
 
         expect(page).to have_current_path budget_projects_path
       end
