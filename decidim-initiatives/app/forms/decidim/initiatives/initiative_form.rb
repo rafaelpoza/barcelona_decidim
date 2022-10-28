@@ -35,6 +35,7 @@ module Decidim
       validates :signature_end_date, date: { after: Date.current }, if: lambda { |form|
         form.context.initiative_type.custom_signature_end_date_enabled? && form.signature_end_date.present?
       }
+      validates :scope_id, presence: true
 
       def map_model(model)
         self.type_id = model.type.id

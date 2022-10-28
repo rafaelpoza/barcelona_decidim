@@ -147,12 +147,6 @@ module Decidim
         end
       end
 
-      context "when no scope is present" do
-        let(:scope) { nil }
-
-        it { is_expected.to be_valid }
-      end
-
       context "when the attachment is present" do
         let(:attachment_params) do
           {
